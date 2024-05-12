@@ -19,9 +19,9 @@
     ```
 
 4. **Access the Application:**
-
+    ```
     This will build the Docker image and start the Flask application, accessible at [http://localhost:8001](http://localhost:8001).
-
+    ```
 ## Running the Application using Docker Compose
 
 1. **Clone my repo**
@@ -37,10 +37,9 @@
     ```
 
 3. **Access the Application:**
-
+    ```
     This will build the Docker image and start the Flask application, accessible at [http://localhost:8001](http://localhost:8001).
     ```
-
 3. **Stop the Application:**
 
     ```bash
