@@ -28,7 +28,6 @@ def test_post_assignment_null_content(client, h_student_1):
     """
     failure case: content cannot be null
     """
-
     response = client.post(
         '/student/assignments',
         headers=h_student_1,
@@ -86,3 +85,16 @@ def test_assignment_resubmit_error(client, h_student_1):
     assert response.status_code == 400
     assert error_response['error'] == 'FyleError'
     assert error_response["message"] == 'only a draft assignment can be submitted'
+
+def test_get_assignments_student_does_not_exist(client, h_student_does_not_exist):
+    """
+    Test case for an invalid student
+    """
+    response = client.get(
+        '/student/assignments',
+        headers=h_student_does_not_exist
+    )
+
+    assert response.status_code == 404
+    assert response.json['error'] == 'FyleError'
+    assert response.json['message'] == 'Student with given id does not exist'
